@@ -27,7 +27,7 @@ Validation模块主要负责对Channel模块产生的中间过程数据以及结
  
 
 Query模块
-所有Channel执行清洗过程中产生的中间数据都会存储在其所在项目指定的Spark-warehouse数据库中，这时用户可以使用Corgi提供的Query功能使用SQL语句对这些中间数据方便地进行查询而不用再编写代码将中间数据注册进Spark-sql后才进行查询。
+所有Channel执行清洗过程中产生的中间数据都会存储在其所在项目指定的Spark warehouse数据库中，这时用户可以使用Corgi提供的Query功能使用SQL语句对这些中间数据方便地进行查询而不用再编写代码将中间数据注册进Spark-sql后才进行查询。
 
 
 QuickStart
@@ -38,26 +38,23 @@ QuickStart
 
 姓名       年龄   性别   职业
 
-咕噜大大 ||  18  || 男 ||  码农 \n
-阿彪     ||  21  || 男 ||  全栈工程师 \n
-阿吉鲁   ||  23  || 男 ||  数据工程师 \n
-阿翔     ||  38  || 男 ||  项目经理 \n
-阿星     ||  40  || 男 ||  前端开发 \n 
-阿虎     ||  29  || 男 ||  后端开发 \n
-神乐     ||      || 女 ||  阴阳师 \n
-白藏主   ||      ||    ||  式神 \n 
+咕噜大大 ||  18  || 男 ||  码农  
+阿彪     ||  21  || 男 ||  全栈工程师  
+阿吉鲁   ||  23  || 男 ||  数据工程师  
+阿翔     ||  38  || 男 ||  项目经理  
+阿星     ||  40  || 男 ||  前端开发   
+阿虎     ||  29  || 男 ||  后端开发  
+神乐     ||      || 女 ||  阴阳师  
+白藏主   ||      ||    ||  式神  
 
-首先，需要做的是去下面的地址下载Corgi项目，并进行解压
-
-$ cd  /your/path
-$ tar  –zcvf  
-
-接下来使用Corgi的脚本文件创建工程
+使用Corgi的脚本文件创建工程
 $/path/to/corgi/bin/corgi.sh  –p  /path/to/corgi-project
 
 进入到 /path/to/corgi-project/conf/ 目录中编辑corgi-conf.xml文档
 
+
 corgi-conf.xml
+<pre><code>
 <configuration>
   <property>
      <name>spark.sql.warehouse.dir</name>
@@ -101,6 +98,7 @@ corgi-conf.xml
      <value>defualt </value>
   </property>
 </configuration>
+<pre><code>
 
 接下来进入到/path/to/corgi-project/channel/ 目录中编辑main.cha.xml 和person.cha.xml文件，如果数据源要处理的是CSV格式的数据，还需要指定和编写CSV数据所对应的元数据配置文件。
 
