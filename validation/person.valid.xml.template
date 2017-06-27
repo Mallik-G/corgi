@@ -1,0 +1,7 @@
+<validation>
+	<transactions>
+		<transaction  type="validation" name="verify-normal-people" 
+          function="input_output" source="People" target="NormalPeople ">
+       </transaction>
+	</transactions>
+</validation>

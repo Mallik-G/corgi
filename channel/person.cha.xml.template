@@ -1,0 +1,18 @@
+<channel>
+
+<source name="People" path="/path/to/data.csv" type="csv" 
+meta_data="/path/to/ people-metadata.xml" />
+ 
+  	<transactions>
+  		<transaction type="sql" name="NormalPeople" >
+  			select * from people where occupation!=’阴阳师’
+  		</transaction>
+  	    <transaction type="sql" name="SeniorPeople" >
+  		    select * from NormalPeople where age>30
+  	    </transaction>
+</transactions>
+
+<sink name=" Result " transaction_name=" SeniorPeople " path="/path/to/sink/data" 
+type="parquet" external_table="true" /> 
+ 
+</channel>

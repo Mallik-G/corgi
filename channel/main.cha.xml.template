@@ -1,0 +1,7 @@
+<channel-chain>
+  <channels>
+    <channel>
+      person.cha.xml 
+    </channel>  
+  </channels>
+</channel-chain>

@@ -1,11 +1,43 @@
 <configuration>
   <property>
      <name>spark.sql.warehouse.dir</name>
-     <value>/Users/minghao/Desktop/杂七杂八/corgi/spark-warehouse</value>
+     <value>/path/to/warehouse </value>
   </property>
   <property>
      <!-- only accept local path -->
      <name>javax.jdo.option.ConnectionURL</name>
-     <value>/Users/minghao/Desktop/杂七杂八/corgi/my_metastore_db</value>
+     <value>/path/to/metastore_db </value>
+  </property>
+  <property>
+     <name>spark.master</name>
+     <value>local </value>
+  </property>
+  <property>
+     <name>spark.submit.deployMode</name>
+     <value>client</value>
+  </property>
+  <property>
+     <name>spark.app.name</name>
+     <value>corgi-test </value>
+  </property>
+  <property>
+     <name>spark.driver.cores</name>
+     <value>2 </value>
+  </property>
+  <property>
+     <name>spark.executor.memory</name>
+     <value>2g </value>
+  </property>
+  <property>
+     <name>spark.executor.cores</name>
+     <value>3 </value>
+  </property>
+   <property>
+     <name>spark.executor.instances</name>
+     <value>2 </value>
+  </property>
+   <property>
+     <name>spark.yarn.queue</name>
+     <value>defualt </value>
   </property>
 </configuration>

@@ -1,0 +1,7 @@
+<validation-chain>
+	<validations>
+		<validation>
+			person.valid.xml
+		</validation>
+	</validations>
+</validation-chain>
