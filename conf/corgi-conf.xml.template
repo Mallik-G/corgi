@@ -1,0 +1,11 @@
+<configuration>
+  <property>
+     <name>spark.sql.warehouse.dir</name>
+     <value>/Users/minghao/Desktop/杂七杂八/corgi/spark-warehouse</value>
+  </property>
+  <property>
+     <!-- only accept local path -->
+     <name>javax.jdo.option.ConnectionURL</name>
+     <value>/Users/minghao/Desktop/杂七杂八/corgi/my_metastore_db</value>
+  </property>
+</configuration>
