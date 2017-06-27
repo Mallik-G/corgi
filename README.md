@@ -55,7 +55,7 @@ Validation模块主要负责对Channel模块产生的中间过程数据以及结
 
 下载了Corgi项目后，在项目的根目录下执行
 ```
-mvn clean assembly:assembly scala:compile compile package -Dmaven.repo.local=/Users/minghao/.m2/repository-scala-2.1.1/
+mvn clean assembly:assembly scala:compile compile package
 ```
 该命令将会在target目录下生成项目的jar包，将jar包放入到libs文件夹中
 
