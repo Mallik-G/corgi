@@ -14,6 +14,7 @@ Channel模块负责定义数据源，数据清洗流程和数据的下沉。Chan
 
 而main.cha.xml 文件名字是固定的，它用来指定执行哪些管道配置文件，以及按什么顺序来执行。
  
+![Image text](https://github.com/guludada/corgi.git/raw/master/images/channel.png)
 
 
 Validation模块
