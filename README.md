@@ -4,33 +4,39 @@ Corgi 是基于Spark SQL和XML文件的轻量级的分布式ETL工具。用户�
 
 Corgi主要由三大部分组成，一部分是Channel模块，一部分是Validation模块，最后一部分是Query模块。Channel模块主要负责对数据的清洗，而Validation模块负责对数据的校验，Query模块则是用来对数据进行查询。所有的Corgi功能模块都在Corgi项目的管理下，每个Corgi项目都有自己独立的metastore元数据库和Spark-warehouse数据库，其中Spark-warehouse 数据库用来存储Channel模块产生的中间数据，当用户执行数据清洗过程中发现数据问题，可以用Query模块提供的功能来使用SQL对存储在Spark-warehouse数据库中的中间数据进行查询，而不用再在Spark-sql中写代码来注册中间数据和进行查询。
 
-Channel模块
+## Channel模块
 
 Channel模块负责定义数据源，数据清洗流程和数据的下沉。Channel模块的功能配置文件由入口文件main.cha.xml 和 管道配置文件Channel-Name.cha.xml两个XML文件组成，它们都放在项目的channel文件夹下。
 
 管道配置文件的名字用户可以进行自定义，比如 filter-tier.cha.xml, generateid-tier.cha.xml, 管道配置文件里面定义了从哪获取数据，如何用SQL查询和清洗数据以及把数据写到哪里。在管道配置文件中，用户需要定义Sink，指明数据从什么数据源中获取，然后把数据映射成Spark SQL 中的一张表；接下来定义Transaction，里面是SQL语句，用来对被映射成表的数据进行操作，类似关系型数据库；最后定义Sink部分，用来指明经过SQL语句查询和操作的数将存储在哪里。
 
- 
-
-而main.cha.xml 文件名字是固定的，它用来指定执行哪些管道配置文件，以及按什么顺序来执行。
- 
 ![Image text](https://github.com/guludada/corgi/blob/master/images/channel.png)
 
+而main.cha.xml 文件名字是固定的，它用来指定执行哪些管道配置文件，以及按什么顺序来执行。
 
-Validation模块
+![Image text](https://github.com/guludada/corgi/blob/master/images/channel-main.png)
+ 
+
+
+
+## Validation模块
 
 Validation模块主要负责对Channel模块产生的中间过程数据以及结果数据进行校验，该模块与Channel类似，也是由两个XML配置文件来实现功能，一个是入口文件main.valid.xml 和 数据验证配置文件Channel-Name.valid.xml，这两个配置文件都需要放在项目工程中的validation文件夹下。
 
 数据验证配置文件的名字用户可以进行自定义，比如 filter-tier.valid.xml, generateid-tier.valid.xml, 数据验证配置文件里面定义了多种”validation”类型的Transaction，用来对Channel模块产生的中间过程数据或者结果数据进行校验，比如输入输出平衡的校验或者是否存在脏数据的校验等。
+
+![Image text](https://github.com/guludada/corgi/blob/master/images/validation.png)
  
 而main.valid.xml 文件名字是固定的，它用来指定执行哪些数据校验配置文件，以及按什么顺序来执行。
+
+![Image text](https://github.com/guludada/corgi/blob/master/images/validation-main.png)
  
 
-Query模块
+## Query模块
 所有Channel执行清洗过程中产生的中间数据都会存储在其所在项目指定的Spark warehouse数据库中，这时用户可以使用Corgi提供的Query功能使用SQL语句对这些中间数据方便地进行查询而不用再编写代码将中间数据注册进Spark-sql后才进行查询。
 
 
-QuickStart
+# QuickStart
 
 下面的QuickStart教程会使用Corgi来对一份CSV格式的数据文件进行查询清洗校验，通过一个完整的ETL清洗教程来向大家展示Corgi的魅力所在。
 
@@ -136,8 +142,11 @@ people-metadata.xml
     <column type="String" nullable="true" >occupation</column>
   </columns>
 </metadata>
+```
 
 最后就是编辑入口文件main.cha.xml
+
+```
 <channel-chain>
   <channels>
     <channel>
