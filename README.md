@@ -14,7 +14,7 @@ Channel模块负责定义数据源，数据清洗流程和数据的下沉。Chan
 
 而main.cha.xml 文件名字是固定的，它用来指定执行哪些管道配置文件，以及按什么顺序来执行。
  
-![Image text](https://github.com/guludada/corgi.git/raw/master/images/channel.png)
+![Image text](https://github.com/guludada/corgi/blob/master/images/channel.png)
 
 
 Validation模块
@@ -38,14 +38,14 @@ QuickStart
 
 姓名       年龄   性别   职业
 
-咕噜大大 ||  18  || 男 ||  码农 
-阿彪     ||  21  || 男 ||  全栈工程师 
-阿吉鲁   ||  23  || 男 ||  数据工程师 
-阿翔     ||  38  || 男 ||  项目经理 
-阿星     ||  40  || 男 ||  前端开发 
-阿虎     ||  29  || 男 ||  后端开发 
-神乐     ||      || 女 ||  阴阳师 
-白藏主   ||      ||    ||  式神
+咕噜大大 ||  18  || 男 ||  码农 \n
+阿彪     ||  21  || 男 ||  全栈工程师 \n
+阿吉鲁   ||  23  || 男 ||  数据工程师 \n
+阿翔     ||  38  || 男 ||  项目经理 \n
+阿星     ||  40  || 男 ||  前端开发 \n 
+阿虎     ||  29  || 男 ||  后端开发 \n
+神乐     ||      || 女 ||  阴阳师 \n
+白藏主   ||      ||    ||  式神 \n 
 
 首先，需要做的是去下面的地址下载Corgi项目，并进行解压
 
