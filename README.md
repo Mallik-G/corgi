@@ -53,7 +53,13 @@ Validation模块主要负责对Channel模块产生的中间过程数据以及结
 神乐     ||      || 女 ||  阴阳师  
 白藏主   ||      ||    ||  式神  
 
-使用Corgi的脚本文件创建工程
+下载了Corgi项目后，在项目的根目录下执行
+```
+mvn clean assembly:assembly scala:compile compile package -Dmaven.repo.local=/Users/minghao/.m2/repository-scala-2.1.1/
+```
+该命令将会在target目录下生成项目的jar包，将jar包放入到libs文件夹中
+
+随后使用Corgi的脚本文件创建工程
 $/path/to/corgi/bin/corgi.sh  –p  /path/to/corgi-project
 
 进入到 /path/to/corgi-project/conf/ 目录中编辑corgi-conf.xml文档
