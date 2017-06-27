@@ -40,6 +40,9 @@ Validation模块主要负责对Channel模块产生的中间过程数据以及结
 
 下面的QuickStart教程会使用Corgi来对一份CSV格式的数据文件进行查询清洗校验，通过一个完整的ETL清洗教程来向大家展示Corgi的魅力所在。
 
+环境要求：
+Scala 2.11.X
+
 假设我们有如下CSV数据：
 
 姓名       年龄   性别   职业
