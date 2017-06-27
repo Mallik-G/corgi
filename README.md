@@ -54,7 +54,7 @@ $/path/to/corgi/bin/corgi.sh  –p  /path/to/corgi-project
 
 
 corgi-conf.xml
-<pre><code>
+```
 <configuration>
   <property>
      <name>spark.sql.warehouse.dir</name>
@@ -98,12 +98,12 @@ corgi-conf.xml
      <value>defualt </value>
   </property>
 </configuration>
-<pre><code>
+```
 
 接下来进入到/path/to/corgi-project/channel/ 目录中编辑main.cha.xml 和person.cha.xml文件，如果数据源要处理的是CSV格式的数据，还需要指定和编写CSV数据所对应的元数据配置文件。
 
 person.cha.xml 
-
+```
 <channel>
 
 <source name="People" path="/path/to/data.csv" type="csv" 
@@ -122,11 +122,11 @@ meta_data="/path/to/ people-metadata.xml" />
 type="parquet" external_table="true" /> 
  
 </channel>
-
+```
 编辑data.csv 数据文件对应的元数据xml文件people-metadata.xml
 
 people-metadata.xml
-
+```
 <metadata>
   <configuration delimiter="||" />
   <columns>
@@ -145,7 +145,7 @@ people-metadata.xml
     </channel>  
   </channels>
 </channel-chain>
-
+```
 当所有配置文件都准备好后，只要执行下面的命令就可以启动ETL任务
 
 $/path/to/corgi/bin/corgi.sh  –r  /path/to/corgi-project
@@ -155,7 +155,7 @@ $/path/to/corgi/bin/corgi.sh  –r  /path/to/corgi-project
 如果要执行校验任务，用户需要进入到/path/to/corgi-project/validation/ 目录下中编辑main.valid.xml 和person.valid.xml文件。目前Corgi提供的校验功能只有简单的输入输出校验平衡功能，后续功能会持续开发中。
 
 person.valid.xml
-
+```
 <validation>
 	<transactions>
 		<transaction  type="validation" name="verify-normal-people" 
@@ -163,9 +163,9 @@ person.valid.xml
        </transaction>
 	</transactions>
 </validation>
-
+```
 main.valid.xml
-
+```
 <validation-chain>
 	<validations>
 		<validation>
@@ -173,7 +173,7 @@ main.valid.xml
 		</validation>
 	</validations>
 </validation-chain>
-
+```
 都配置文件都准备完毕后，就可以输入下面的命令执行校验操作
 
 $/path/to/corgi/bin/corgi.sh  –v  /path/to/corgi-project
